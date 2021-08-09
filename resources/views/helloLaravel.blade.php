@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hello Laravel</title>
 </head>
+
 <style>
     table {
         margin: 0 auto;
@@ -13,15 +14,12 @@
         border: 1px solid black;
         border-collapse: collapse;
     }
+
     .cell {
         border: 1px solid black;
         text-align: center;
         padding: 5px 15px;
         font-size: 1.2rem;
-    }
-
-    th {
-        font-size: 1.4rem;
     }
 </style>
 
@@ -29,21 +27,17 @@
     <table>
         <thead>
             <tr>
-                <th class="cell id">ID</th>
-                <th class="cell fname">First Name</th>
-                <th class="cell lname">Last Name</th>
-                <th class="cell email">Email</th>
-                <th class="cell gender">Gender</th>
+                @foreach($users[0] as $title)
+                <th class="cell">{{ucwords($title)}}</th>
+                @endforeach
             </tr>
         </thead>
         <tbody>
             @foreach($users as $user)
             <tr>
-                <td class="cell id">{{$user['id']}}</td>
-                <td class="cell fname">{{$user['first_name']}}</td>
-                <td class="cell lname">{{$user['last_name']}}</td>
-                <td class="cell email">{{$user['email']}}</td>
-                <td class="cell gender">{{$user['gender']}}</td>
+                @foreach($user as $data)
+                <td class="cell">{{$data}}</td>
+                @endforeach
             </tr>
             @endforeach
         </tbody>
