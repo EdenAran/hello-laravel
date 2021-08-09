@@ -27,7 +27,7 @@
     <table>
         <thead>
             <tr>
-                @foreach($users[0] as $title)
+                @foreach(array_keys($users[0]) as $title)
                 <th class="cell">{{ucwords($title)}}</th>
                 @endforeach
             </tr>
